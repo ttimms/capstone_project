@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Current tickets for a specific license plate:</h2>
+
+    <table>
+    {% for record in ticketRecords %}
+        <tr>
+            {% for fields in record %}
+                <td>{{ fields }}</td>
+            {%endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+
+    <!-- SQLALCHEMY TEST
+    <table>
+    {% for record in ticketRecords %}
+        <tr>
+            <td>{{ record.vType }}</td>
+            <td>{{ record.amount }}</td>
+            <td>{{ record.licensePlateNumber }}</td>
+            <td>{{ record.timestamp }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    -->
+
+{% endblock %}
+

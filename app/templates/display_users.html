@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>Current Database Users:</h2>
+
+    {% for name in nameList %}
+        <h4>{{ name }}</h4>
+    {% endfor %}
+
+    <!-- SQLALCHEMY TEST
+
+    {% for user in nameList %}
+        <h4>Username: {{user.username}},   First Name: {{user.firstName}},   Last Name: {{user.lastName}}</h4>
+    {% endfor %}
+
+    END TEST -->
+{% endblock %}
+

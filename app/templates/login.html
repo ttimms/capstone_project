@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CoPilot</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="/static/homepage.css">
+    </head>
+    <body>
+    <div style = 'display:flex; position:absolute; top:0; bottom:0; right:0; left:0; '>
+        <div id='wrapper' style='margin:auto;'>
+        <h2>CoPilot Login</h2>
+
+        <form action="{{ url_for('index') }}" method="POST">
+
+          <input type="text" name="username" placeholder=" Username" autofocus>
+          <br><br>
+          <input type="password" name="password" placeholder=" Password">
+          <br><br>
+          <input type="submit" value="Login">
+        </form>
+    </div>
+    </body>
+</html>

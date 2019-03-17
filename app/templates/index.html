@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style = 'display:flex; position:absolute; top:0; bottom:0; right:0; left:0; '>
+    <div id='wrapper' style='margin:auto;'>
+    <h2>CoPilot Login</h2>
+
+    <form action="{{ url_for('index') }}" method="POST">
+
+      <input type="text" name="username" placeholder=" Username" autofocus>
+      <br><br>
+      <input type="password" name="password" placeholder=" Password">
+      <br><br>
+      <input type="submit" value="Login">
+    </form>
+</div>
+{% endblock %}

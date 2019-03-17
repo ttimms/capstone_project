@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="smsemailblock">
+        <div class="floatLeft">
+            <h2>Send Email </h2>
+
+            <form action="{{ url_for('send_email_alert') }}" method="POST">
+              Password:<br>
+              <input type="password" name="Password">
+              <br>
+              Email:<br>
+              <input type="text" name="Email">
+              <br>
+              Message:<br>
+              <input type="text" name="Message">
+              <br>
+              <br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div>
+            <h2>Send SMS </h2>
+
+            <form action="{{ url_for('send_sms_alert') }}" method="POST">
+              Password:<br>
+              <input type="password" name="Password">
+              <br>
+              Receiving phone number:<br>
+              <input type="text" name="Phone">
+              <br>
+              Message:<br>
+              <input type="text" name="Message">
+              <br><br>
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <hr>
+    <h2>Adding User to database</h2>
+
+    <form action="{{ url_for('create_database_user') }}" method="POST">
+      Enter new user:<br>
+      <input type="text" name="username">
+      <br>
+      Email:<br>
+      <input type="text" name="email">
+      <br>
+      Password:<br>
+      <input type="password" name="password">
+      <br>
+      First Name:<br>
+      <input type="text" name="firstName">
+      <br>
+      Last Name:<br>
+      <input type="text" name="lastName">
+      <br>
+      Phone:<br>
+      <input type="text" name="phone">
+      <br>
+      Role:
+      <select name="role">
+          <option value="Admin">Admin</option>
+          <option value="Manager">Manager</option>
+          <option value="Associate">Associate</option>
+          <option value="Customer">Customer</option>
+      </select>
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+    <h2>Add Ticket to database</h2>
+
+    <form action="{{ url_for('create_ticket') }}" method="POST">
+      Violation Type:<br>
+      <input type="text" name="vtype">
+      <br>
+      Description:<br>
+      <input type="text" name="description">
+      <br>
+      Location:<br>
+      <input type="text" name="location">
+      <br>
+      Amount:<br>
+      <input type="text" name="amount">
+      <br>
+      License Plate Number:<br>
+      <input type="text" name="lpn">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+    <h2>Delete user from database by username</h2>
+    <form action="{{ url_for('delete_database_user') }}" method="POST">
+      Delete existing user:<br>
+      <input type="text" name="username">
+      <input type="submit" value="Submit">
+    </form>
+
+     <hr>
+    <h2>Delete ticket from database by ticket ID</h2>
+    <form action="{{ url_for('delete_ticket') }}" method="POST">
+      Delete ticket id:<br>
+      <input type="text" name="tick_id">
+      <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+    <h2>Display users in database</h2>
+    <form action="{{ url_for('display_users') }}">
+        <br>
+        <input type="submit" value="Lookup" />
+    </form>
+
+    <hr>
+    <h2>View Tickets by license plate number.</h2>
+    <form action="{{ url_for('view_tickets') }}" method="POST">
+      View Tickets:<br>
+      <input type="text" name="licenseplate">
+      <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}
