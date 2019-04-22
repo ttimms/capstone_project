@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if current_user.vehicles.first() %}
+        <br>
+        <h2>Current Vehicles for: {{ current_user.username }}</h2>
+        <table class="ticketTable">
+            <tr>
+                <th>License Plate</th>
+                <th>Make</th>
+                <th>Model</th>
+            </tr>
+            {% for vehicle in current_user.vehicles %}
+                <tr>
+                    <td>{{ vehicle.licensePlateNumber }}</td>
+                    <td>{{ vehicle.make }}</td>
+                    <td>{{ vehicle.model }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <br>
+    <h2>Add New Vehicle</h2>
+    <br>
+
+    <form action="{{ url_for('add_vehicle') }}" method="POST">
+      License Plate:<br>
+      <input type="text" name="lpn">
+      <br>
+
+      Make:<br>
+      <input type="text" name="make">
+      <br>
+      Model:<br>
+      <input type="text" name="model">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+{% endblock %}

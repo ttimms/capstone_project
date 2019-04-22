@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <div class="smsemailblock">
-        <div class="floatLeft">
+    <div {# class="smsemailblock" #}>
+        <div {# class="floatLeft" #}>
             <h2>Send Email </h2>
 
             <form action="{{ url_for('send_email_alert') }}" method="POST">

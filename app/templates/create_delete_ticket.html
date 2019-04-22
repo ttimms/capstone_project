@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <hr>
+    <h2>Add Ticket to database</h2>
+
+    <form action="{{ url_for('create_delete_ticket') }}" method="POST">
+        Upload Image: <br> <!--- This is what I added so take this out if not needed -->
+      <label for="file-upload" class="custom-file-upload">
+        <i class="fa fa-cloud-upload"></i>
+      </label>
+      <input id="file-upload" type="file" name="file">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <form action="{{ url_for('create_ticket') }}" method="POST">
+
+      Violation Type:<br>
+      <input type="text" name="vtype">
+      <br>
+
+      Description:<br>
+      <input type="text" name="description">
+      <br>
+      Location:<br>
+      <input type="text" name="location">
+      <br>
+      Amount:<br>
+      <input type="text" name="amount">
+      <br>
+      License Plate Number:<br>
+      <input type="text" name="lpn" value="{{ lpn }}">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <hr>
+
+    <h2>Delete ticket from database by ticket ID</h2>
+    <form action="{{ url_for('delete_ticket') }}" method="POST">
+      Delete ticket id:<br>
+      <input type="text" name="tick_id">
+      <input type="submit" value="Submit">
+    </form>
+
+{% endblock %}

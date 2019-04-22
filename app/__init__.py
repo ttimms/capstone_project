@@ -17,6 +17,7 @@ migrate = Migrate(app, sqlAlchemy_db)
 
 # setup for login management
 login = LoginManager(app)
+login.login_view = 'login'
 
 # setup object for email notification
 mail = Mail(app)

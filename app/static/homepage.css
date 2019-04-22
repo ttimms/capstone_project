@@ -1,7 +1,10 @@
+
+
 wrapper {
 	width: 100px;
 	height: 100px;
-	background-color: lightblue;
+/*	background-color: lightblue;*/
+/*background-image: url("/static/images/automobiles-bird-s-eye-view-cars-1004409.jpg"");*/
 
 	position: absolute;
 	top:0;
@@ -12,8 +15,39 @@ wrapper {
 	margin: auto;
 }
 
+
 body{
-    background-color: #e5f2ff;
+  /* background-color: #e5f2ff;*/
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      rgba(0, 0, 100, 0.45),
+      rgba(0, 0, 100, 0.45)
+    ),
+    /* bottom, image */
+    url("/static/images/copilot_new.jpg");
+ /* background-image: url("/static/images/favicon.ico");*/
+   /* display: flex;*/
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.text-input{
+    position: relative;
+    margin-top: 50px;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 input[type=submit]{ /*This is for the login button, mess around with the numbers*/
@@ -21,6 +55,7 @@ input[type=submit]{ /*This is for the login button, mess around with the numbers
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    transition: all 1.9s ease-in;
 }
 
 input[type=submit]:hover{ /*This is for the login button, mess around with the numbers*/
@@ -28,6 +63,10 @@ input[type=submit]:hover{ /*This is for the login button, mess around with the n
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    transition: all 1.3s ease-in;
+    transition-delay 1.9s;
+    animation: 10s wrapper;
+
 }
 
 input[type=text]{ /*This is for anybox with the text type*/
@@ -36,6 +75,9 @@ input[type=text]{ /*This is for anybox with the text type*/
   padding: 3px;
   width: 150px;
   height: 20px;
+  transition: all 1.3s ease-in;
+transition-delay 1.0s;
+
 }
 
 input[type=text]:focus{ /*This is for anybox with the text type*/
@@ -53,6 +95,9 @@ input[type=password]{
   padding: 3px;
   width: 150px;
   height: 20px;
+    transition: all 0.1s ease-in;
+transition-delay 0.4s;
+
 }
 
 input[type=password]:focus{
@@ -62,6 +107,9 @@ input[type=password]:focus{
   width: 150px;
   height: 20px;
   outline: none;
+    transition: all 1.5s ease-in;
+transition-delay 0.4s;
+
 }
 
 input:-webkit-autofill {
@@ -69,6 +117,40 @@ input:-webkit-autofill {
     box-shadow:  0 0 0px 1000px white inset;
 }
 
+/*View tickets section of styling */
+
+.ticketTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ticketTable td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.ticketTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.ticketTable tr:nth-child(odd){background-color: #ffffff;}
+
+.ticketTable tr:hover {background-color: #ddd;}
+
+.ticketTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #002664;
+  color: white;
+}
+
+.ticketHeader{
+    text-align: center;
+    color: #eaab00;
+
+}
+
+/* End of view tickets section of styling */
 
 .smsemailblock{
     display: flex;

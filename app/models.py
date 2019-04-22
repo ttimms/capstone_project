@@ -3,7 +3,7 @@ from app import sqlAlchemy_db, login
 from flask_login import UserMixin
 
 class User(UserMixin, sqlAlchemy_db.Model):
-    userID = sqlAlchemy_db.Column(sqlAlchemy_db.Integer, primary_key=True)
+    id = sqlAlchemy_db.Column(sqlAlchemy_db.Integer, primary_key=True)
     username = sqlAlchemy_db.Column(sqlAlchemy_db.String(64), index=True, unique=True)
     email = sqlAlchemy_db.Column(sqlAlchemy_db.String(120), index=True, unique=True)
     password = sqlAlchemy_db.Column(sqlAlchemy_db.String(128))
@@ -36,7 +36,7 @@ class Vehicle(sqlAlchemy_db.Model):
     licensePlateNumber = sqlAlchemy_db.Column(sqlAlchemy_db.String(8), primary_key=True)
     model = sqlAlchemy_db.Column(sqlAlchemy_db.String(20))
     make = sqlAlchemy_db.Column(sqlAlchemy_db.String(20))
-    userID = sqlAlchemy_db.Column(sqlAlchemy_db.Integer, sqlAlchemy_db.ForeignKey('user.userID'))
+    id = sqlAlchemy_db.Column(sqlAlchemy_db.Integer, sqlAlchemy_db.ForeignKey('user.id'))
 
     def __repr__(self):
         return '<Vehicle {}>'.format(self.model)

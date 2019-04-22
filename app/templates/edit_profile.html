@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Edit Profile</h2>
+
+    <form action="{{ url_for('edit_profile') }}" method="POST">
+      Username:<br>
+      <input type="text" name="username", value="{{ current_user.username }}">
+      <br>
+      Email:<br>
+      <input type="text" name="email" value="{{ current_user.email }}">
+      <br>
+      Password:<br>
+      <input type="password" name="password">
+      <br>
+      Retype Password:<br>
+      <input type="password" name="password2">
+      <br>
+      First Name:<br>
+      <input type="text" name="firstName" value="{{ current_user.firstName }}">
+      <br>
+      Last Name:<br>
+      <input type="text" name="lastName" value="{{ current_user.lastName }}">
+      <br>
+      Phone:<br>
+      <input type="text" name="phone" value="{{ current_user.phoneNumber }}">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+{% endblock %}

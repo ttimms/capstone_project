@@ -1,28 +1,20 @@
 from app import sqlAlchemy_db
-from app.models import Ticket
-import mysql.connector
-from config import Config
+from app.models import Ticket, Vehicle
+from app.email import send_email
+from app.sms import send_sms
 
 def createTicket(vtype, desc, loc, amount, lpn):
-    #setup object for db connection
-    mydb = mysql.connector.connect(
-        host=Config.DB_HOST,
-        user=Config.DB_USERNAME,
-        passwd=Config.DB_PASSWORD,
-        database=Config.DB_CURRENT
-        )
 
-    mycursor = mydb.cursor()
+    message = 'Your vehicle with license plate: ' + lpn + ' has received a ticket.\n' + desc + '\n'
 
-    sqlStatement = "INSERT INTO ticket(type, description, location, amount, licensePlateNumber) VALUES(%s, %s, %s, %s, %s)"
-    vals = (vtype, desc, loc, amount, lpn)
-
-    mycursor.execute(sqlStatement, vals)
-
-    mydb.commit()
-    mycursor.execute("SELECT type, description, location, amount, licensePlateNumber FROM ticket")
-
-    # SQL ALCHEMY TEST
+    vehicle = Vehicle.query.filter_by(licensePlateNumber=lpn).first()
+    if vehicle:
+        owner = vehicle.owner
+        if owner:
+            if owner.email:
+                send_email(owner.email, message)
+            if owner.phoneNumber == '3303571702':
+                send_sms(owner.phoneNumber, message)
 
     newTicket = Ticket(
                 vType=vtype,
@@ -34,10 +26,4 @@ def createTicket(vtype, desc, loc, amount, lpn):
     sqlAlchemy_db.session.add(newTicket)
     sqlAlchemy_db.session.commit()
 
-    # END TEST
-
-#    nameList = mycursor.fetchall()
-
-#    if (vtype, desc, loc, amount, lpn) in nameList:
-#        return True
     return True

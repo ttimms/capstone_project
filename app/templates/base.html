@@ -9,10 +9,20 @@
     </head>
     <header>
         <ul class="ulnavbar">
-            <li class="linavbar"><a class="anavbar" href="#">Home</a></li>
-            <li class="linavbar"><a class="anavbar" href="#">View Tickets</a></li>
-            <li class="linavbar"><a class="anavbar" href="#">Edit Profile</a></li>
-            <li class="linavbar"><a class="anavbar" href="#">Logout</a></li>
+            <li class="linavbar"><a class="anavbar" href="{{ url_for('index') }}">Home</a></li>
+            <li class="linavbar"><a class="anavbar" href="{{ url_for('edit_profile') }}">Edit Profile</a></li>
+            <li class="linavbar"><a class="anavbar" href="{{ url_for('add_vehicle') }}">Add Vehicle</a></li>
+
+            {% if current_user.role == "Admin" or current_user.role == "Associate" or current_user.role == "Manager" %}
+                <li class="linavbar"><a class="anavbar" href="{{ url_for('view_tickets') }}">View Tickets</a></li>
+                <li class="linavbar"><a class="anavbar" href="{{ url_for('create_delete_ticket') }}">Add/Remove Tickets</a></li>
+                <li class="linavbar"><a class="anavbar" href="{{ url_for('send_notification') }}">Send Notification</a></li>
+            {% endif %}
+
+            {% if current_user.role == "Admin" or current_user.role == "Manager" %}
+            <li class="linavbar"><a class="anavbar" href="{{ url_for('modify_user_data')}}">Add/Remove User</a></li>
+            {% endif %}
+            <li class="linavbar"><a class="anavbar" href="{{ url_for('logout') }}">Logout</a></li>
         </ul>
     </header>
     <body>

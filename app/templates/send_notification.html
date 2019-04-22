@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="{{ url_for('send_notification') }}" method="POST">
+      License Plate:<br>
+      <input type="text" name="licensePlate">
+      <br>Message:<br>
+      <input type="text" name="message">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,95 @@
+wrapper {
+	width: 100px;
+	height: 100px;
+
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	margin: auto;
+}
+
+body{
+
+    background-image: linear-gradient(to right, rgb(0,38,100,1), rgb(239,171,0,1));
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+
+
+
+.box{
+    margin: 4em 4em 4em;
+    padding: 3em 3em 5em;
+    width: 40%;
+
+    background-color: rgb(200,200,200,0.3);
+    text-align: center;
+    box-shadow: 3px 3px 5px #2b2b2b;
+
+    border-radius: 8px;
+    border: .5px solid black;
+}
+
+input[type=submit]{ /*This is for the login button, mess around with the numbers*/
+   padding:5px 15px; background:#ddd; border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+input[type=submit]:hover{ /*This is for the login button, mess around with the numbers*/
+   padding:5px 15px; background:#ccc; border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+
+}
+input[type=text]{ /*This is for anybox with the text type*/
+  border-radius: 25px;
+  border: 1px solid #aaaaaa;
+  padding: 3px;
+  width: 150px;
+  height: 20px;
+
+
+}
+
+input[type=text]:focus{ /*This is for anybox with the text type*/
+  border-radius: 25px;
+  border: 1px solid #6666ff;
+  padding: 3px;
+  width: 150px;
+  height: 20px;
+  outline: none;
+}
+
+input[type=password]{
+  border-radius: 25px;
+  border: 1px solid #aaaaaa;
+  padding: 3px;
+  width: 150px;
+  height: 20px;
+
+}
+
+input[type=password]:focus{
+  border-radius: 25px;
+  border: 1px solid #6666ff;
+  padding: 3px;
+  width: 150px;
+  height: 20px;
+  outline: none;
+
+}
+
+
+
